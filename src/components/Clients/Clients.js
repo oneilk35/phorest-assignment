@@ -11,6 +11,7 @@ const clients = (props) => {
                 email={client.email}
                 mobile={client.mobile}
                 key={client.clientId}
+                createVoucher={(event) => props.createVoucher(event, client)}
                 photoUrl={client.photoUrl}  />
         ));
     }

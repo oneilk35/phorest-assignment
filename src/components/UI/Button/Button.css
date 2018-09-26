@@ -9,7 +9,7 @@
     margin: 10px;
     font-weight: bold;
     border-radius: 25px;
-    width: 100px;
+    width: auto;
 }
 
 .Button:first-of-type {
@@ -28,4 +28,14 @@
 .Primary{
     background-color: #6F4887;
     color: white;
+}
+
+.Secondary{
+    background-color: #ccc;
+    color: black;
+}
+
+.BtnText{
+    padding-left: 10px;
+    padding-right: 10px;
 }

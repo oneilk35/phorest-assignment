@@ -4,7 +4,7 @@ const dropdownSelect = (props) => {
     let options = null;
     if(props.options){
         options = props.options.map(option => {
-            return <option value={option} key={option}>{option}</option>
+            return <option className={classes.Option} value={option} key={option}>{option}</option>
         });
     }
     return (

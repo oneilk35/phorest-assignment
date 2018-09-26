@@ -9,16 +9,19 @@ const client = (props) => {
     if(props.photoUrl){
         imageSrc = props.photoUrl;
     }
+
     return (
         <div className={classes.Client}>
             <div className={classes.Column}>
-                <p className={classes.Name}>{props.name}</p>
+                <div  className={classes.Name}><p>{props.name}</p></div>
                 <img className={classes.Image} alt="Customer Profile Pic" src={imageSrc}/>
             </div>
             <div className={classes.Column}>
                 <div className={classes.ContactInfo}><img alt="Phone Icon" className={classes.Icon} src={phoneIconSrc}/> <p>{props.mobile}</p></div>
                 <div className={classes.ContactInfo}><img alt="Email Icon" className={classes.Icon} src={emailIconSrc}/> <p>{props.email}</p></div>
-                <Button btnType="Primary">Create Voucher</Button>
+                <div>
+                    <Button clicked={props.createVoucher} btnType="Primary">Create Voucher</Button>
+                </div>
             </div>
         </div>
     );

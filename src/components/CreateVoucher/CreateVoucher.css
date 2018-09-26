@@ -1,0 +1,40 @@
+.Heading{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.Column{
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+}
+
+.Row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+
+::-webkit-scrollbar {
+    width: 1px;
+    height: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 1px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}

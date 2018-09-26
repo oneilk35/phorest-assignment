@@ -4,4 +4,13 @@
     border-radius: 25px;
     margin-top: 10px;
     background-color: #eef1f1;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.Option {
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
 }

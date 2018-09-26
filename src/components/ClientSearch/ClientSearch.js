@@ -5,9 +5,12 @@ import Clients from '../Clients/Clients';
 import Cockpit from '../UI/Cockpit/Cockpit';
 import Search from '../UI/Search/Search';
 import axios from 'axios';
+import Modal from '../UI/Modal/Modal';
+import CreateVoucher from '../CreateVoucher/CreateVoucher';
 
 const access_token = "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw=";
 axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
+axios.defaults.baseURL = 'http://api-gateway-dev.phorest.com/third-party-api-server/api/business/';
 class ClientSearch extends Component{
     state = {
         loading: true,
@@ -16,15 +19,21 @@ class ClientSearch extends Component{
         queryResults: null,
         showCockpit: true,
         queryParam: 'email',
-        queryOptions: ['email', 'mobile']
+        queryOptions: ['email', 'mobile'],
+        showCreateVoucherModal: false,
+        clientReceivingVoucher: null,
+        businessId: 'eTC3QY5W3p_HmGHezKfxJw',
+        branchId: 'SE-J0emUgQnya14mOGdQSw',
+        username: 'global/cloud@apiexamples.com',
+        password: 'VMlRo/eh+Xd8M~l'
     }
 
     componentDidMount(){
-        axios.get('http://api-gateway-dev.phorest.com/third-party-api-server/api/business/eTC3QY5W3p_HmGHezKfxJw/client',{
-            url: 'http://api-gateway-dev.phorest.com/third-party-api-server/api/business/eTC3QY5W3p_HmGHezKfxJw/client',
+        axios.get(this.state.businessId + '/client',{
+            url: this.state.businessId + '/client',
             auth: {
-              username: 'global/cloud@apiexamples.com',
-              password: 'VMlRo/eh+Xd8M~l'
+              username: this.state.username,
+              password: this.state.password
             },
           }).then(res => {
             this.setState({clients: res.data._embedded.clients, loading: false});
@@ -53,14 +62,35 @@ class ClientSearch extends Component{
         this.setState({queryResults: newQueryResults, loading: false, showCockpit: false});
     }
 
+    createVoucherHandler = (event, client) => {
+        this.setState({showCreateVoucherModal: true, clientReceivingVoucher: client});
+    }
+
+    closeCreateVoucherModal = () => {
+        this.setState({showCreateVoucherModal: false});
+    }
+
     render(){
-        let spinner,clients,cockpit, emptyResult = null;
+        let spinner,clients,cockpit,emptyResult,modal  = null;
         this.state.showCockpit ? cockpit = <Cockpit /> : null;
-        this.state.queryResults ? clients = <Clients clients={this.state.queryResults}/> : null;
+        this.state.queryResults ? clients = <Clients createVoucher={this.createVoucherHandler} clients={this.state.queryResults}/> : null;
         this.state.loading ? spinner = <Spinner /> : null;
         if(this.state.queryResults){
             this.state.queryResults.length === 0 ? emptyResult = <h3>No client matches this query!</h3> : null
         }
+        if(this.state.showCreateVoucherModal && this.state.clientReceivingVoucher){
+            modal = (
+                <Modal modalClosed={this.closeCreateVoucherModal} show={this.state.showCreateVoucherModal}>
+                    <CreateVoucher 
+                        businessId={this.state.businessId} 
+                        creatingBranchId ={this.state.branchId}
+                        username={this.state.username}
+                        password={this.state.password}
+                        cancel={this.closeCreateVoucherModal} 
+                        client={this.state.clientReceivingVoucher} />
+                </Modal>);
+        }
+        
         return (
             <div className={classes.ClientSearch}>
                 <Search 
@@ -74,6 +104,7 @@ class ClientSearch extends Component{
                 {clients}
                 {emptyResult}
                 {cockpit}
+                {modal}
             </div>
         );
     }
