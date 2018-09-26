@@ -1,0 +1,14 @@
+.ClientSearch{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+@media (max-width: 500px){
+    .ClientSearch{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
