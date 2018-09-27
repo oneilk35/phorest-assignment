@@ -8,7 +8,7 @@ import DropdownSelect from '../../components/UI/DropdownSelect/DropdownSelect';
 import Modal from '../../components/UI/Modal/Modal';
 const access_token = "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw=";
 axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
-axios.defaults.baseURL = 'http://api-gateway-dev.phorest.com/third-party-api-server/api/business/';
+axios.defaults.baseURL = 'https://api-gateway-dev.phorest.com/third-party-api-server/api/business/';
 
 class CreateVoucher extends Component{
     state = {
@@ -20,10 +20,16 @@ class CreateVoucher extends Component{
         errorReturned: null
     }
 
+    /* This below function is used to handle when the user changes the input for the amount 
+    the voucher is to be worth */
+
     onAmountChangeHandler = (event) => {
         const newVoucherAmount = event.target.value;
         this.setState({voucherAmount: newVoucherAmount});
     }
+
+    /* This below function is used to create and return an object representing the voucher to created
+    and posted to the API */
 
     createNewVoucherObject(){
         let date = new Date();
@@ -50,6 +56,9 @@ class CreateVoucher extends Component{
         return newVoucherObject;
     }
 
+    /* This function below is responsible for posting the newly created voucher to the API. The POST 
+    request is mde using a library called axios */
+
     postNewVoucher = () => {
         const newVoucherObject = this.createNewVoucherObject();
         axios.post(this.props.businessId + '/voucher',{},{
@@ -66,18 +75,27 @@ class CreateVoucher extends Component{
             if(res.status === 201){
               this.props.showSuccessModal();
             }
+            console.log(res);
           }).catch(err => {
             this.errorModalHandler(err);
           });
     }
 
+    /* This below function is used to handle when the user changes the input for the expiry date of  
+    the voucher */
+
     onExpiryDateChangeHandler = (event) => {
         this.setState({expiryDate: event.target.value});
     }
 
+    /* This below function is used display the error modal. It stores the error in the state. */
+
     errorModalHandler = (err) => {
         this.setState({showErrorModal: true, errorReturned: err.toString()});
     }
+
+    /* This function below is used to initialize the modal that displays error. A switch statement is used to 
+    determine the output message depending on what type of error is sent back from the API */ 
 
     initializeErrorModal = () => {
         let errorModal = null; 
@@ -114,6 +132,7 @@ class CreateVoucher extends Component{
         return errorModal;
     }
 
+    /* This function closes the error modal */
     closeErrorModal = () => {
         this.setState({showErrorModal: false, errorReturned: null});
     }

@@ -26,10 +26,19 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
+.NameChangeBtn{
+    width: 150px;
+    font-size: 13px;
+    margin-left: 40%;
+}
 
-@media (max-width: 500px){
+
+@media (max-width: 600px){
     .ClientSearch{
         margin-left: 0;
         margin-right: 0;
+    }
+    .NameChangeBtn{
+        margin-left: 30%;
     }
 }
