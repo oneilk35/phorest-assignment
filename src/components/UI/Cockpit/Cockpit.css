@@ -1,17 +1,34 @@
 .Cockpit {
     align-content: center;
-    width: 40%;
+    width: 350px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 30%;
+    margin-left: 27%;
     display: inline;
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+.Heading {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.Sentences{
+    font-size: 13px;
 }
 
 @media (max-width: 500px){
     .Cockpit{
         margin-left: 25px;
         width: 300px;
+    }
+}
+
+@media(min-width: 500px) and (max-width: 900px){
+    .Cockpit{
+        width: 300px;
+        left: 0;
+        margin-left: 10%;
     }
 }

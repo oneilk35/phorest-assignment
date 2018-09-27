@@ -9,6 +9,10 @@
     overflow-x: auto;
 }
 
+.ErrorModal{
+    display: inline-block;
+}
+
 .Row{
     display: flex;
     flex-direction: row;
