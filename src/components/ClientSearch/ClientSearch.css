@@ -2,13 +2,34 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-left: 20%;
-    padding-right: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: white;
 }
+
+.Heading{
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+    height: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 1px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
 
 @media (max-width: 500px){
     .ClientSearch{
-        padding-left: 10%;
-        padding-right: 10%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }

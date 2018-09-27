@@ -7,6 +7,7 @@ import Search from '../UI/Search/Search';
 import axios from 'axios';
 import Modal from '../UI/Modal/Modal';
 import CreateVoucher from '../CreateVoucher/CreateVoucher';
+import Button from '../UI/Button/Button';
 
 const access_token = "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw=";
 axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
@@ -67,29 +68,50 @@ class ClientSearch extends Component{
     }
 
     closeCreateVoucherModal = () => {
-        this.setState({showCreateVoucherModal: false});
+        this.setState({showCreateVoucherModal: false, clientReceivingVoucher: null});
     }
 
-    render(){
-        let spinner,clients,cockpit,emptyResult,modal  = null;
-        this.state.showCockpit ? cockpit = <Cockpit /> : null;
-        this.state.queryResults ? clients = <Clients createVoucher={this.createVoucherHandler} clients={this.state.queryResults}/> : null;
-        this.state.loading ? spinner = <Spinner /> : null;
-        if(this.state.queryResults){
-            this.state.queryResults.length === 0 ? emptyResult = <h3>No client matches this query!</h3> : null
-        }
+    showSuccessModal = () => {
+        this.setState({showSuccessModal: true, showCreateVoucherModal: false, queryResults: null, showCockpit: true, query: ''});
+    }
+
+    closeSuccessModal = () => {
+        this.setState({showSuccessModal: false, clientReceivingVoucher: null});
+    }
+
+    initializeModal = () => {
+        let modal = null;
         if(this.state.showCreateVoucherModal && this.state.clientReceivingVoucher){
             modal = (
                 <Modal modalClosed={this.closeCreateVoucherModal} show={this.state.showCreateVoucherModal}>
                     <CreateVoucher 
-                        businessId={this.state.businessId} 
-                        creatingBranchId ={this.state.branchId}
-                        username={this.state.username}
-                        password={this.state.password}
-                        cancel={this.closeCreateVoucherModal} 
+                        businessId={this.state.businessId} creatingBranchId ={this.state.branchId}
+                        username={this.state.username} password={this.state.password} 
+                        showSuccessModal={this.showSuccessModal} cancel={this.closeCreateVoucherModal} 
                         client={this.state.clientReceivingVoucher} />
                 </Modal>);
         }
+
+        if(this.state.showSuccessModal){
+            modal = (
+                <Modal modalClosed={this.closeSuccessModal} show={this.state.showSuccessModal}>
+                    <h3 className={classes.Heading}>Voucher successfully created for {this.state.clientReceivingVoucher.firstName + " " + this.state.clientReceivingVoucher.lastName}! </h3>
+                    <Button clicked={this.closeSuccessModal} btnType="Secondary">Close</Button>
+            </Modal>);
+        }
+        return modal;
+    }
+
+    render(){
+        let spinner,clients,cockpit,emptyResult,modal  = null;
+        this.state.showCockpit ? cockpit = <Cockpit /> : cockpit = null;
+        this.state.queryResults ? clients = 
+            <Clients createVoucher={this.createVoucherHandler} clients={this.state.queryResults}/> : clients = null;
+        this.state.loading ? spinner = <Spinner /> : spinner = null;
+        if(this.state.queryResults){
+            this.state.queryResults.length === 0 ? emptyResult = <h3>No client matches this query!</h3> : emptyResult = null
+        }
+       modal = this.initializeModal();
         
         return (
             <div className={classes.ClientSearch}>

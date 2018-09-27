@@ -3,3 +3,31 @@
     padding-right: 15%;
     padding-left: 15%;
 }
+
+@media (max-width: 500px){
+    .Clients{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px){
+    .Clients{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px){
+    .Clients{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px){
+    .Clients{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

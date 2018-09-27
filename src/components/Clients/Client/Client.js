@@ -12,11 +12,11 @@ const client = (props) => {
 
     return (
         <div className={classes.Client}>
-            <div className={classes.Column}>
+            <div className={classes.Left}>
                 <div  className={classes.Name}><p>{props.name}</p></div>
                 <img className={classes.Image} alt="Customer Profile Pic" src={imageSrc}/>
             </div>
-            <div className={classes.Column}>
+            <div className={classes.Right}>
                 <div className={classes.ContactInfo}><img alt="Phone Icon" className={classes.Icon} src={phoneIconSrc}/> <p>{props.mobile}</p></div>
                 <div className={classes.ContactInfo}><img alt="Email Icon" className={classes.Icon} src={emailIconSrc}/> <p>{props.email}</p></div>
                 <div>

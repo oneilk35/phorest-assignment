@@ -1,7 +1,17 @@
 .Cockpit {
     align-content: center;
-    width: 300px;
+    width: 40%;
     margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30%;
+    display: inline;
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+@media (max-width: 500px){
+    .Cockpit{
+        margin-left: 25px;
+        width: 300px;
+    }
 }

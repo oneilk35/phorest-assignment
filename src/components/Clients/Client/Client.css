@@ -4,9 +4,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 600px;
-    height: 200px;
+    height: 225px;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .Column{
@@ -29,6 +29,24 @@
     width: 25px;
     margin-top: 10px;
     margin-right: 10px;
+}
+
+.Left{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    flex: 50%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.Right{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    flex: 50%;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .Name{
@@ -63,4 +81,128 @@
 ::-webkit-scrollbar-thumb {
     border-radius: 1px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+@media (max-width: 500px){
+    .Client{
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        flex:30%;
+    }
+    .Image{
+        height: 50%;
+        width: 65%;
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 25px;
+    }
+    .Name{
+        width: 125px;
+        height: 50px;
+    }
+    .ContactInfo{
+        margin-right: 35px;
+    }
+    .Left{
+        width: 100px;
+        flex: 35%;
+    }
+    .Right{
+        flex: 65%;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px){
+    .Client{
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        flex:30%;
+    }
+    .Image{
+        height: 50%;
+        width: 65%;
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 25px;
+    }
+    .Name{
+        width: 125px;
+        height: 50px;
+    }
+    .ContactInfo{
+        margin-right: 35px;
+    }
+    .Left{
+        width: 100px;
+        flex: 35%;
+    }
+    .Right{
+        flex: 65%;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1000px){
+    .Client{
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        flex:30%;
+    }
+    .Image{
+        height: 50%;
+        width: 65%;
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 25px;
+    }
+    .Name{
+        width: 125px;
+        height: 50px;
+    }
+    .ContactInfo{
+        margin-right: 35px;
+    }
+    .Left{
+        width: 100px;
+        flex: 35%;
+    }
+    .Right{
+        flex: 65%;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px){
+    .Client{
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        flex:30%;
+    }
+    .Image{
+        height: 50%;
+        width: 65%;
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 25px;
+    }
+    .Name{
+        width: 125px;
+        height: 50px;
+    }
+    .ContactInfo{
+        margin-right: 35px;
+    }
+    .Left{
+        width: 100px;
+        flex: 35%;
+    }
+    .Right{
+        flex: 65%;
+        font-size: 14px;
+    }
 }

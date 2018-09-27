@@ -5,3 +5,9 @@
     border: 1px solid #ccc;
     margin-top: 15px;
 }
+
+@media (max-width: 500px){
+    .Search{
+        flex-wrap: wrap; 
+    }
+}

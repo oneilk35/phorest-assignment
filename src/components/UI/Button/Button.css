@@ -39,3 +39,8 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.Button:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+}

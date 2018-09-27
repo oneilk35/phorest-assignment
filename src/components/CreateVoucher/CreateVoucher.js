@@ -39,8 +39,7 @@ class CreateVoucher extends Component{
               }
             ],
             originalBalance: this.state.voucherAmount,
-            remainingBalance: this.state.voucherAmount,
-            voucherId: "ab-123"
+            remainingBalance: this.state.voucherAmount
         }
         return newVoucherObject;
     }
@@ -60,9 +59,8 @@ class CreateVoucher extends Component{
           }).then(res => {
             console.log(res);
             if(res.status === 201){
-              console.log("Successfully created!");
+              this.props.showSuccessModal();
             }
-            console.log(res.data);
           }).catch(err => {
             console.log(err);
           });
@@ -86,7 +84,7 @@ class CreateVoucher extends Component{
                     </div>
                     <div className={classes.Controls}>
                         <Button clicked={this.props.cancel} btnType="Secondary">Cancel</Button>
-                        <Button clicked={this.postNewVoucher} btnType="Primary">Create Voucher</Button>
+                        <Button disabled={this.state.voucherAmount === ''} clicked={this.postNewVoucher} btnType="Primary">Create Voucher</Button>
                     </div>
                 </div>
             </div>
