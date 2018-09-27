@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from './CreateVoucher.css';
-import Button from '../UI/Button/Button';
-import InfoRow from '../UI/InfoRow/InfoRow';
-import Input from '../UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
+import InfoRow from '../../components/UI/InfoRow/InfoRow';
+import Input from '../../components/UI/Input/Input';
 import axios from 'axios';
 
 const access_token = "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw=";

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import classes from './ClientSearch.css';
-import Spinner from '../UI/Spinner/Spinner';
-import Clients from '../Clients/Clients';
-import Cockpit from '../UI/Cockpit/Cockpit';
-import Search from '../UI/Search/Search';
+import Spinner from '../../components/UI/Spinner/Spinner';
+import Clients from '../../components/Clients/Clients';
+import Cockpit from '../../components/UI/Cockpit/Cockpit';
+import Search from '../../components/UI/Search/Search';
 import axios from 'axios';
-import Modal from '../UI/Modal/Modal';
+import Modal from '../../components/UI/Modal/Modal';
 import CreateVoucher from '../CreateVoucher/CreateVoucher';
-import Button from '../UI/Button/Button';
+import Button from '../../components/UI/Button/Button';
 
 const access_token = "Basic Z2xvYmFsL2Nsb3VkQGFwaWV4YW1wbGVzLmNvbTpWTWxSby9laCtYZDhNfmw=";
 axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
