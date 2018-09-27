@@ -154,11 +154,11 @@ class CreateVoucher extends Component{
                     </div>
                     <div className={classes.Row}>
                         <p style={{'fontWeight': 'bold'}}>Amount: </p>
-                        <Input type="number" value={this.state.voucherAmount} onChange={this.onAmountChangeHandler} placeholder="Enter Amount" /> 
+                        <Input type="number" minvalue={this.state.voucherAmount} onChange={this.onAmountChangeHandler} placeholder="Min Amount €10" /> 
                     </div>
                     <div className={classes.Controls}>
                         <Button clicked={this.props.cancel} btnType="Secondary">Cancel</Button>
-                        <Button disabled={this.state.voucherAmount === ''} clicked={this.postNewVoucher} btnType="Primary">Create Voucher</Button>
+                        <Button disabled={Number(this.state.voucherAmount) < 10} clicked={this.postNewVoucher} btnType="Primary">Create Voucher</Button>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
 ---------
 
 The project is structured like so:
-* Stateful components are found in the containers directory - as these are the components with the main logic, I have commented most of the function in these components
+* Stateful components are found in the containers directory - as these are the components with the main logic, I have commented most of the functions in these components
 * Stateless or Functional components are found in the components directory 
 * Higher Order Components (HOC) - components which are used to order other components, such as the Layout component, 
 can be found in the hoc directory. 
@@ -21,8 +21,7 @@ My aim for this project was to try and make use of components as regulary as pos
 
 ------
 
-I also wanted to create a webapp that responsive in design to the best of my abilities. For this I used media queries 
-to also desing the look of the application for mobile devices. When in browser, if you toggle the view to mobile device, you will see that the components adjust accordingly. 
+I also wanted to create a webapp that is responsive in design to the best of my abilities. For this I used media queries to also design the look of the application for mobile devices. When in browser, if you toggle the view to mobile device, you will see that the components adjust accordingly. 
 
 ------
 
@@ -38,7 +37,7 @@ not as familiar with the testing framework jest as I would like to be.
 -----
 
 For strictly display purposes, I have included a button at the bottom of the home page that allows the user to display
-normal names instead of the ones returned from the API, as some of them are primarily jsut a long series of digits
+normal names instead of the ones returned from the API, as some of them are primarily just a long series of digits
 
 
 --------
